@@ -4,7 +4,7 @@
 #
 Name     : compat-rest-soname07
 Version  : 0.9.0
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/rest/0.9/rest-0.9.0.tar.xz
 Source0  : https://download.gnome.org/sources/rest/0.9/rest-0.9.0.tar.xz
 Summary  : RESTful web api query library
@@ -91,7 +91,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646843853
+export SOURCE_DATE_EPOCH=1646844080
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
