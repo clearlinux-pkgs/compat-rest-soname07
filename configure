@@ -1,0 +1,2 @@
+-Dca_certificates_path=/var/cache/ca-certs/compat/ca-roots.pem 
+-Dgtk_doc=false
