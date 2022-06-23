@@ -4,14 +4,13 @@
 #
 Name     : compat-rest-soname07
 Version  : 0.8.1
-Release  : 19
+Release  : 20
 URL      : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Source0  : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Summary  : RESTful web api query library
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: compat-rest-soname07-data = %{version}-%{release}
-Requires: compat-rest-soname07-filemap = %{version}-%{release}
 Requires: compat-rest-soname07-lib = %{version}-%{release}
 Requires: compat-rest-soname07-license = %{version}-%{release}
 BuildRequires : buildreq-gnome
@@ -64,20 +63,11 @@ Group: Documentation
 doc components for the compat-rest-soname07 package.
 
 
-%package filemap
-Summary: filemap components for the compat-rest-soname07 package.
-Group: Default
-
-%description filemap
-filemap components for the compat-rest-soname07 package.
-
-
 %package lib
 Summary: lib components for the compat-rest-soname07 package.
 Group: Libraries
 Requires: compat-rest-soname07-data = %{version}-%{release}
 Requires: compat-rest-soname07-license = %{version}-%{release}
-Requires: compat-rest-soname07-filemap = %{version}-%{release}
 
 %description lib
 lib components for the compat-rest-soname07 package.
@@ -103,7 +93,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646845827
+export SOURCE_DATE_EPOCH=1656012188
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -126,7 +116,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1646845827
+export SOURCE_DATE_EPOCH=1656012188
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-rest-soname07
 cp %{_builddir}/rest-0.8.1/COPYING %{buildroot}/usr/share/package-licenses/compat-rest-soname07/9a1929f4700d2407c70b507b3b2aaf6226a9543c
@@ -134,7 +124,7 @@ pushd ../buildavx2/
 %make_install_v3
 popd
 %make_install
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -201,17 +191,18 @@ popd
 /usr/share/gtk-doc/html/rest-0.7/up-insensitive.png
 /usr/share/gtk-doc/html/rest-0.7/up.png
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-compat-rest-soname07
-
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-0.7.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-0.7.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-0.7.so.0.0.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-extras-0.7.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-extras-0.7.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-extras-0.7.so.0.0.0
 /usr/lib64/librest-0.7.so.0
 /usr/lib64/librest-0.7.so.0.0.0
 /usr/lib64/librest-extras-0.7.so.0
 /usr/lib64/librest-extras-0.7.so.0.0.0
-/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
