@@ -4,7 +4,7 @@
 #
 Name     : compat-rest-soname07
 Version  : 0.8.1
-Release  : 21
+Release  : 22
 URL      : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Source0  : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Summary  : RESTful web api query library
