@@ -4,7 +4,7 @@
 #
 Name     : compat-rest-soname07
 Version  : 0.8.1
-Release  : 26
+Release  : 27
 URL      : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Source0  : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Summary  : RESTful web api query library
@@ -93,7 +93,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656099115
+export SOURCE_DATE_EPOCH=1664142143
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -116,10 +116,10 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1656099115
+export SOURCE_DATE_EPOCH=1664142143
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-rest-soname07
-cp %{_builddir}/rest-0.8.1/COPYING %{buildroot}/usr/share/package-licenses/compat-rest-soname07/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/rest-%{version}/COPYING %{buildroot}/usr/share/package-licenses/compat-rest-soname07/9a1929f4700d2407c70b507b3b2aaf6226a9543c || :
 pushd ../buildavx2/
 %make_install_v3
 popd
@@ -154,6 +154,8 @@ popd
 /usr/include/rest-0.7/rest/rest-proxy.h
 /usr/include/rest-0.7/rest/rest-xml-node.h
 /usr/include/rest-0.7/rest/rest-xml-parser.h
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-0.7.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/librest-extras-0.7.so
 /usr/lib64/librest-0.7.so
 /usr/lib64/librest-extras-0.7.so
 /usr/lib64/pkgconfig/rest-0.7.pc
@@ -193,10 +195,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/librest-0.7.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/librest-0.7.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/librest-0.7.so.0.0.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/librest-extras-0.7.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/librest-extras-0.7.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/librest-extras-0.7.so.0.0.0
 /usr/lib64/librest-0.7.so.0
