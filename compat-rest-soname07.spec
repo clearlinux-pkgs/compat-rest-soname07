@@ -5,7 +5,7 @@
 #
 Name     : compat-rest-soname07
 Version  : 0.8.1
-Release  : 30
+Release  : 31
 URL      : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Source0  : https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 Summary  : RESTful web api query library
@@ -98,15 +98,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682704904
+export SOURCE_DATE_EPOCH=1687465778
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 %configure --disable-static --with-ca-certificates=/var/cache/ca-certs/compat/ca-roots.pem
 make  %{?_smp_mflags}
 
@@ -121,7 +121,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1682704904
+export SOURCE_DATE_EPOCH=1687465778
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-rest-soname07
 cp %{_builddir}/rest-%{version}/COPYING %{buildroot}/usr/share/package-licenses/compat-rest-soname07/9a1929f4700d2407c70b507b3b2aaf6226a9543c || :
@@ -142,8 +142,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/librest-0.7.so
-/V3/usr/lib64/librest-extras-0.7.so
 /usr/include/rest-0.7/rest-extras/flickr-proxy-call.h
 /usr/include/rest-0.7/rest-extras/flickr-proxy.h
 /usr/include/rest-0.7/rest-extras/lastfm-proxy-call.h
@@ -200,9 +198,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/librest-0.7.so.0
 /V3/usr/lib64/librest-0.7.so.0.0.0
-/V3/usr/lib64/librest-extras-0.7.so.0
 /V3/usr/lib64/librest-extras-0.7.so.0.0.0
 /usr/lib64/librest-0.7.so.0
 /usr/lib64/librest-0.7.so.0.0.0
